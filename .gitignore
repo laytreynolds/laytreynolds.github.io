@@ -1,0 +1,4 @@
+# Private: the CV contains a phone number and details kept off the public site
+*.docx
+PRODUCT.md
+.impeccable/
