@@ -1,56 +1,53 @@
-// Scroll reveal
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
+// Progressive enhancement only: every piece of content works without this file.
+
+// Copy email address
+const canCopy = !!(navigator.clipboard && window.isSecureContext);
+
+document.querySelectorAll('.copy').forEach(btn => {
+  if (!canCopy) return;
+  btn.hidden = false;
+  const status = btn.parentElement.querySelector('.copy-status');
+  let timer;
+
+  btn.addEventListener('click', async () => {
+    clearTimeout(timer);
+    try {
+      await navigator.clipboard.writeText(btn.dataset.copy);
+      status.textContent = 'Copied to clipboard';
+    } catch {
+      status.textContent = "Couldn't copy. Select the address and copy it instead.";
     }
+    timer = setTimeout(() => { status.textContent = ''; }, 4000);
   });
-}, { threshold: 0.1 });
-
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-// Nav scroll effect
-window.addEventListener('scroll', () => {
-  document.querySelector('nav').classList.toggle('scrolled', window.scrollY > 20);
 });
 
-// Mobile nav toggle
-const toggle = document.querySelector('.nav-toggle');
-const navLinks = document.querySelector('.nav-links');
-toggle.addEventListener('click', () => navLinks.classList.toggle('open'));
-navLinks.querySelectorAll('a').forEach(a => {
-  a.addEventListener('click', () => navLinks.classList.remove('open'));
-});
+// Mark the section currently in view in the nav
+const navLinks = new Map(
+  [...document.querySelectorAll('.nav-links a')].map(a => [a.hash.slice(1), a])
+);
 
-// Animate stat counters
-function animateCounters() {
-  document.querySelectorAll('.stat-number').forEach(el => {
-    const text = el.textContent;
-    const match = text.match(/(\+?)(\d+)/);
-    if (!match) return;
-    const prefix = match[1];
-    const target = parseInt(match[2]);
-    let current = 0;
-    const duration = 1500;
-    const step = target / (duration / 16);
-    const counter = setInterval(() => {
-      current += step;
-      if (current >= target) {
-        current = target;
-        clearInterval(counter);
-      }
-      el.innerHTML = `<span class="plus">${prefix}</span>${Math.floor(current)}`;
-    }, 16);
+function setCurrent(id) {
+  navLinks.forEach((a, key) => {
+    if (key === id) a.setAttribute('aria-current', 'location');
+    else a.removeAttribute('aria-current');
   });
 }
 
-const heroObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      animateCounters();
-      heroObserver.disconnect();
-    }
-  });
-}, { threshold: 0.5 });
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) setCurrent(entry.target.id);
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' });
 
-document.querySelectorAll('.hero-stats').forEach(el => heroObserver.observe(el));
+  ['top', 'experience', 'projects', 'skills', 'education'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) observer.observe(el);
+  });
+
+  // The contact band is short, so mark it whenever the page is scrolled to the end
+  window.addEventListener('scroll', () => {
+    const atEnd = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 2;
+    if (atEnd) setCurrent('contact');
+  }, { passive: true });
+}

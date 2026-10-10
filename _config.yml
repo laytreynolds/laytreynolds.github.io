@@ -1,0 +1,4 @@
+# GitHub Pages (Jekyll): keep planning docs out of the published site
+exclude:
+  - PRODUCT.md
+  - DESIGN.md
