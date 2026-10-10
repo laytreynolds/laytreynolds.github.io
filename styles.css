@@ -162,9 +162,9 @@ p { text-wrap: pretty; }
 .btn-quiet {
   display: inline-flex;
   align-items: center;
-  min-height: 36px;
-  padding: 6px 12px;
-  border: 1px solid var(--rule);
+  min-height: 44px;
+  padding: 8px 14px;
+  border: 1px solid var(--ink-faint);
   background: transparent;
   color: var(--ink);
   font: 600 0.875rem/1 var(--sans);
@@ -311,7 +311,6 @@ h1 {
   font-weight: 600;
   line-height: 1.3;
 }
-.frame-note { margin-top: 6px; }
 
 .lead-latency {
   margin-left: auto;
@@ -356,7 +355,12 @@ h1 {
 }
 
 .frame-incidents { grid-column: span 4; }
-.frame-overhead { grid-column: span 3; }
+.frame-migration { grid-column: span 3; }
+
+.figure-route {
+  font-size: clamp(1.75rem, 2.6vw, 2.25rem);
+  white-space: normal;
+}
 
 /* Before / after bars at true scale */
 
@@ -366,15 +370,15 @@ h1 {
   margin-top: 4px;
 }
 .bar-row {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 9ch;
+  display: flex;
   align-items: center;
   gap: 10px;
 }
 .bar {
   display: block;
+  flex: none;
   height: 12px;
-  width: calc(var(--v) * 100%);
+  width: calc(var(--v) * (100% - 8ch));
 }
 .bar-before { background: var(--ink-muted); }
 .bar-after { background: var(--go-cyan); }
@@ -403,38 +407,6 @@ h3 {
   font-weight: 700;
   line-height: 1.15;
   letter-spacing: -0.01em;
-}
-
-/* Career to scale, under the Experience heading */
-
-.career { margin-top: 28px; max-width: 420px; }
-.career-bar {
-  display: flex;
-  gap: 2px;
-  height: 14px;
-}
-.seg { flex: var(--m) 1 0; min-width: 4px; }
-.seg-admin { background: var(--ink-faint); }
-.seg-ops { background: var(--ink-muted); }
-.seg-dev { background: var(--go-cyan); }
-.career-axis {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 6px;
-  font-size: 0.75rem;
-}
-.career-key {
-  display: grid;
-  gap: 4px;
-  margin-top: 12px;
-  font-size: 0.875rem;
-  color: var(--ink-muted);
-}
-.swatch {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  margin-right: 8px;
 }
 
 /* Rows: experience, stack, education */
@@ -554,8 +526,8 @@ h3 {
 }
 .also-name { font-weight: 700; font-size: 1.125rem; line-height: 1.2; }
 .also-desc { font-size: 0.9375rem; max-width: 46ch; }
-.also-links { display: flex; gap: 16px; }
-.also-links a { display: inline-block; padding-block: 4px; }
+.also-links { display: flex; flex-wrap: wrap; gap: 0 16px; }
+.also-links a { display: inline-block; padding-block: 4px; white-space: nowrap; }
 
 /* Stack */
 
@@ -651,15 +623,13 @@ h3 {
   .hero-id { grid-column: 1 / 6; align-self: start; position: sticky; top: 104px; }
   .proof { grid-column: 6 / 13; }
 
-  .section-h,
-  .section-head {
+  .section-h {
     grid-column: 1 / 4;
     align-self: start;
     position: sticky;
     top: 96px;
   }
-  .section-head .section-h { position: static; }
-  .section > :not(.section-h):not(.section-head) { grid-column: 4 / 13; }
+  .section > :not(.section-h) { grid-column: 4 / 13; }
 
   .project { grid-template-columns: minmax(0, 4fr) minmax(0, 5fr); }
 }
@@ -693,13 +663,12 @@ h3 {
 
 @media (max-width: 639px) {
   .frame-incidents,
-  .frame-overhead { grid-column: 1 / -1; }
+  .frame-migration { grid-column: 1 / -1; }
   .frame { padding: 18px 18px 20px; }
   .frame-lead { padding: 20px 18px 22px; }
   .frame-fleet { grid-template-columns: minmax(0, 1fr); }
   .isotype {
-    aspect-ratio: 40 / 25;
-    background-size: calc(100% / 40) 100%, 100% calc(100% / 25);
+    background-color: var(--ink-muted);
   }
 }
 
@@ -726,5 +695,5 @@ h3 {
 }
 
 @media (forced-colors: active) {
-  .isotype, .bar, .seg, .swatch, .mark-dot { forced-color-adjust: none; }
+  .isotype, .bar, .mark-dot { forced-color-adjust: none; }
 }

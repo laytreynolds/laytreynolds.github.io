@@ -1,21 +1,4 @@
 <!DOCTYPE html>
-<!--
-  THESIS: A backend engineer's record, set as a Swiss data poster: the real
-  production figures are the typography. Refuses the dev-template hero of
-  title + badge + animated counters + icon-card grid.
-  OWN-WORLD: Graphite ground, bone ink, one Go-cyan field colour spent as
-  solid fields. Archivo (width axis) + Fragment Mono for data only. 12-col
-  grid, side-hung headings, 1px rules, square corners, no shadows.
-  STORY: A recruiter sees name, "backend engineer, Go APIs at scale", and the
-  proof in one screen, believes it because each figure is drawn to true
-  scale, and emails from the first viewport or the closing cyan band.
-  FIRST VIEWPORT: Left five columns: name, one-line pitch, location, Email me
-  + visible address + LinkedIn/GitHub. Right seven: ruled array of unequal
-  proof frames led by a full cyan 50M+ requests/day field
-  carrying <200 ms, then the 1,000-square fleet, then before/after bars.
-  FORM: Swiss technical poster (6th of 7, assigned); staging: unequal
-  synchronized frame array, static, one shared load beat. Seed 55d3809e.
--->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -41,7 +24,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Fragment+Mono&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=2">
+  <link rel="stylesheet" href="styles.css?v=3">
 </head>
 <body>
 
@@ -53,7 +36,7 @@
       <ul class="nav-links">
         <li><a href="#experience">Experience</a></li>
         <li><a href="#projects">Projects</a></li>
-        <li><a href="#stack">Stack</a></li>
+        <li><a href="#skills">Skills</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -67,7 +50,7 @@
         <div>
           <h1 id="name">Layton<br>Reynolds</h1>
           <p class="pitch">Backend engineer. I build <strong>Go APIs</strong> handling 50M+ requests a day, and I learnt reliability first-hand in production support.</p>
-          <p class="where">West Midlands, UK · 3 years in production engineering</p>
+          <p class="where">West Midlands, UK · in production engineering since 2023</p>
           <p class="stackline label">Go · REST · GCP · Linux · Docker</p>
         </div>
 
@@ -90,10 +73,7 @@
           <p class="frame-k label">Throughput</p>
           <p class="numeral"><data value="50000000">50M+</data></p>
           <div class="frame-foot">
-            <div>
-              <p class="frame-cap">combined requests a day across the Go APIs I designed and built for core services</p>
-              <p class="frame-note label">≈ 579 req/s averaged over 24 h</p>
-            </div>
+            <p class="frame-cap">combined requests a day across the Go APIs I designed and built for core services</p>
             <p class="lead-latency"><span class="lead-latency-fig">&lt;200 ms</span> <span class="lead-latency-cap">response time</span></p>
           </div>
         </li>
@@ -109,7 +89,7 @@
 
         <li class="frame frame-incidents">
           <p class="frame-k label">Incident resolution</p>
-          <p class="figure">1 h <span aria-hidden="true">→</span><span class="sr-only">down to</span> 20 min</p>
+          <p class="figure">1<span aria-hidden="true"> h →</span><span class="sr-only"> hour, down to</span> 20<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></p>
           <div class="bars" role="img" aria-label="Bar chart: 60 minutes before, 20 minutes after">
             <span class="bar-row" aria-hidden="true"><span class="bar bar-before" style="--v:1"></span><span class="label">before</span></span>
             <span class="bar-row" aria-hidden="true"><span class="bar bar-after" style="--v:.3333"></span><span class="label">after</span></span>
@@ -117,42 +97,23 @@
           <p class="frame-cap">time to resolve incidents, after monitoring and optimising services</p>
         </li>
 
-        <li class="frame frame-overhead">
-          <p class="frame-k label">Infrastructure overhead</p>
-          <p class="figure">up to −75%</p>
-          <div class="bars" role="img" aria-label="Bar chart: in the best-case areas, overhead fell to a quarter">
-            <span class="bar-row" aria-hidden="true"><span class="bar bar-before" style="--v:1"></span><span class="label">on-prem</span></span>
-            <span class="bar-row" aria-hidden="true"><span class="bar bar-after" style="--v:.25"></span><span class="label">best case</span></span>
-          </div>
-          <p class="frame-cap">in some areas, after the on-prem to GCP migration I led</p>
+        <li class="frame frame-migration">
+          <p class="frame-k label">Cloud migration</p>
+          <p class="figure figure-route">On-prem <span aria-hidden="true">→</span><span class="sr-only">to</span> GCP</p>
+          <p class="frame-cap">I led the move of legacy on-prem services to Google Cloud, cutting deployment time.</p>
         </li>
       </ul>
     </section>
 
     <!-- EXPERIENCE -->
     <section class="section wrap" id="experience" aria-labelledby="experience-h">
-      <div class="section-head">
-        <h2 class="section-h" id="experience-h">Experience</h2>
-        <figure class="career">
-          <div class="career-bar" role="img" aria-label="Career to scale: 7 months as a systems administrator, 22 months in production support, then backend development from April 2025 to now">
-            <span class="seg seg-admin" style="--m:7"></span>
-            <span class="seg seg-ops" style="--m:22"></span>
-            <span class="seg seg-dev" style="--m:18"></span>
-          </div>
-          <p class="career-axis label" aria-hidden="true"><span>Nov 2022</span><span>now</span></p>
-          <figcaption class="career-key">
-            <span><i class="swatch seg-admin" aria-hidden="true"></i>Systems admin</span>
-            <span><i class="swatch seg-ops" aria-hidden="true"></i>Production support</span>
-            <span><i class="swatch seg-dev" aria-hidden="true"></i>Backend development</span>
-          </figcaption>
-        </figure>
-      </div>
+      <h2 class="section-h" id="experience-h">Experience</h2>
       <ol class="roles">
         <li class="role">
           <p class="when label"><time datetime="2025-04">Apr 2025</time> – now</p>
           <div class="role-body">
             <h3>Software Developer</h3>
-            <p class="org">Global, highly regulated platform</p>
+            <p class="org">Global, highly regulated platform · backend, Go</p>
             <ul class="wins">
               <li>Designed and built Go APIs for core services that together handle <b class="fig">50M+ requests a day</b> at <b class="fig">under 200 ms</b>.</li>
               <li>Led the migration of on-prem services to Google Cloud, cutting infrastructure overhead by <b class="fig">up to 75%</b> in some areas and shortening deployments.</li>
@@ -202,8 +163,8 @@
             <p>Full-stack app for running a football team's season: fixtures, players, goals, assists and leaderboards. A Go API with JWT auth, leaderboards computed with MongoDB aggregation pipelines, and a React and TypeScript front end. Containerised with Docker and deployed through GitHub Actions.</p>
             <p class="stackline label">Go · Gin · MongoDB · JWT · React · TypeScript · Docker</p>
             <ul class="project-links">
-              <li><a href="https://fctracker.laytonreynolds.com/" rel="noopener">Live app (sign-in) <span aria-hidden="true">↗</span></a></li>
-              <li><a href="https://github.com/laytreynolds/fctracker" rel="noopener">Source on GitHub <span aria-hidden="true">↗</span></a></li>
+              <li><a href="https://github.com/laytreynolds/fctracker" rel="noopener">Source on GitHub<span class="sr-only"> for FC Tracker</span> <span aria-hidden="true">↗</span></a></li>
+              <li><a href="https://fctracker.laytonreynolds.com/" rel="noopener">Live app, sign-in required <span aria-hidden="true">↗</span></a></li>
             </ul>
           </div>
           <figure class="routes">
@@ -229,27 +190,22 @@
             <p>An in-memory key-value store with a RESTful HTTP API, written in Go from scratch. Add, update, upsert, delete, and query by key or across the whole store.</p>
             <p class="stackline label">Go · HTTP · REST</p>
             <ul class="project-links">
-              <li><a href="https://github.com/laytreynolds/keyvaluestore" rel="noopener">Source on GitHub <span aria-hidden="true">↗</span></a></li>
+              <li><a href="https://github.com/laytreynolds/keyvaluestore" rel="noopener">Source on GitHub<span class="sr-only"> for Key Value Store</span> <span aria-hidden="true">↗</span></a></li>
             </ul>
           </div>
-          <figure class="routes routes-split">
+          <figure class="routes">
             <table>
-              <caption class="sr-only">Key Value Store API routes</caption>
+              <caption class="sr-only">Selected Key Value Store API routes</caption>
               <thead><tr><th scope="col">Method</th><th scope="col">Route</th></tr></thead>
               <tbody>
                 <tr><td>GET</td><td>/kvs/get?key=</td></tr>
                 <tr><td>POST</td><td>/kvs/add?key=</td></tr>
-                <tr><td>PUT</td><td>/kvs/update?key=</td></tr>
                 <tr><td>POST</td><td>/kvs/upsert?key=</td></tr>
                 <tr><td>DELETE</td><td>/kvs/delete?key=</td></tr>
-                <tr><td>GET</td><td>/kvs/exists?key=</td></tr>
                 <tr><td>GET</td><td>/kvs/getall</td></tr>
-                <tr><td>GET</td><td>/kvs/count</td></tr>
-                <tr><td>POST</td><td>/kvs/clear</td></tr>
-                <tr><td>GET</td><td>/kvs/ping</td></tr>
               </tbody>
             </table>
-            <figcaption>The full API: 10 routes.</figcaption>
+            <figcaption>5 of 10 routes.</figcaption>
           </figure>
         </article>
 
@@ -260,19 +216,19 @@
               <h4 class="also-name">Tickr</h4>
               <p class="also-desc">Reminder and event service that sends SMS and email notifications when they fall due.</p>
               <p class="label">Java · Spring Boot · Docker</p>
-              <p class="also-links"><a href="https://github.com/laytreynolds/Tickr" rel="noopener">Source <span aria-hidden="true">↗</span></a></p>
+              <p class="also-links"><a href="https://github.com/laytreynolds/Tickr" rel="noopener">Source on GitHub<span class="sr-only"> for Tickr</span> <span aria-hidden="true">↗</span></a></p>
             </li>
             <li>
               <h4 class="also-name">DCRM</h4>
               <p class="also-desc">Django CRM for managing orders and users, on PostgreSQL.</p>
               <p class="label">Python · Django · PostgreSQL</p>
-              <p class="also-links"><a href="https://github.com/laytreynolds/dcrm" rel="noopener">Source <span aria-hidden="true">↗</span></a></p>
+              <p class="also-links"><a href="https://github.com/laytreynolds/dcrm" rel="noopener">Source on GitHub<span class="sr-only"> for DCRM</span> <span aria-hidden="true">↗</span></a></p>
             </li>
             <li>
               <h4 class="also-name">Purple Direct</h4>
               <p class="also-desc">Design study: a marketing site for a SIM-plan brand, with plan comparison, checkout and dashboard.</p>
               <p class="label">HTML · CSS</p>
-              <p class="also-links"><a href="https://laytonreynolds.com/laytreynolds.pd.io/index.html" rel="noopener">Live <span aria-hidden="true">↗</span></a> <a href="https://github.com/laytreynolds/laytreynolds.pd.io" rel="noopener">Source <span aria-hidden="true">↗</span></a></p>
+              <p class="also-links"><a href="https://laytonreynolds.com/laytreynolds.pd.io/index.html" rel="noopener">Live site<span class="sr-only"> for Purple Direct</span> <span aria-hidden="true">↗</span></a> <a href="https://github.com/laytreynolds/laytreynolds.pd.io" rel="noopener">Source on GitHub<span class="sr-only"> for Purple Direct</span> <span aria-hidden="true">↗</span></a></p>
             </li>
           </ul>
         </div>
@@ -280,9 +236,9 @@
       </div>
     </section>
 
-    <!-- STACK -->
-    <section class="section wrap" id="stack" aria-labelledby="stack-h">
-      <h2 class="section-h" id="stack-h">Stack</h2>
+    <!-- SKILLS -->
+    <section class="section wrap" id="skills" aria-labelledby="skills-h">
+      <h2 class="section-h" id="skills-h">Skills</h2>
       <dl class="stack">
         <div class="stack-row stack-core">
           <dt>Backend</dt>
@@ -359,6 +315,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=2" defer></script>
+  <script src="script.js?v=3" defer></script>
 </body>
 </html>

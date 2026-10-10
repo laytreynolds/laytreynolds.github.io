@@ -75,7 +75,8 @@ components:
     backgroundColor: "transparent"
     textColor: "{colors.ink}"
     rounded: "{rounded.none}"
-    padding: "6px 12px"
+    padding: "8px 14px"
+    height: "44px"
   proof-frame:
     backgroundColor: "{colors.graphite}"
     textColor: "{colors.ink}"
@@ -119,9 +120,9 @@ A graphite-and-bone ground with a single saturated cyan that appears as whole fi
 - **Graphite** (#121311): page ground.
 - **Raised Graphite** (#191A17): the rare inset surface (code and route tables).
 - **Rule** (#2E2F2A): one-pixel grid rules and frame gutters. Decorative only; never carries text.
-- **Faint Ink** (#6E6D67): the earliest segment of the career bar only (3.5:1 against graphite, for graphics, never text).
+- **Faint Ink** (#6E6D67): borders of quiet buttons, so their edge reads at 3.5:1 against graphite. Never text.
 - **Bone Ink** (#ECEAE3): all primary text and the isotype squares.
-- **Muted Ink** (#A3A29B): secondary text and "before" bars; 7:1 on graphite.
+- **Muted Ink** (#A3A29B): secondary text, "before" bars, and the isotype squares on phones (where full Bone Ink would outshine the cyan field); 7:1 on graphite.
 - **On-Cyan Ink** (#061A20): every piece of text on a cyan field, at every size.
 
 ### Named Rules
@@ -172,7 +173,7 @@ Square corners throughout (radius 0). Rules are 1px. Data marks are rectangles: 
 - **Shape:** square corners (0).
 - **Primary:** Go Cyan field, On-Cyan Ink label, Archivo 700 1.0625rem, padding 14px 24px, minimum height 52px, with a trailing arrow glyph.
 - **Hover / Focus:** hover inverts to Bone Ink field with Graphite label (120ms). Focus-visible shows a 2px Go Cyan outline offset 3px (On-Cyan Ink outline on cyan fields).
-- **Quiet:** for utility actions such as Copy. Transparent with a 1px rule border and Bone Ink label; on hover the border turns Bone Ink.
+- **Quiet:** for utility actions such as Copy. Transparent with a 1px Faint Ink border and Bone Ink label, minimum height 44px; on hover the border turns Bone Ink.
 
 ### Links
 Bone Ink with a 1px underline offset 4px; hover thickens the underline to 2px. External links carry a ↗ glyph and say what they open ("Source on GitHub ↗", not "Click here").
@@ -185,9 +186,6 @@ A cell of the hero's ruled array. A mono chart label at top, a figure (Headline 
 
 ### Isotype Grid (signature)
 1,000 squares, one per server, drawn with layered CSS gradients on a single element (no per-square DOM). It is labelled for assistive tech as a single image.
-
-### Career Bar (signature)
-Under the Experience heading: three flat segments sized in true proportion to months in each role (Faint Ink, Muted Ink, Go Cyan for the current role), a mono axis from start to "now", and a swatch key. Script keeps the current segment true to today's date.
 
 ### Contact Close
 The full-bleed cyan band ends the page. The email address is the closing headline, sized with container units across the full width, followed by a 1px On-Cyan rule and an imprint line (LinkedIn, GitHub, location). The section heading is visually hidden.
@@ -212,3 +210,4 @@ Raised Graphite inset, Fragment Mono, a method column and a path column, hairlin
 - **Don't** set headings, buttons or sentences in monospace.
 - **Don't** introduce light mode or a second accent colour.
 - **Don't** invent figures, distributions or chart data; graph only what the CV states.
+- **Don't** show derived figures (averages, rates) or stack caveats in the proof array; hedged claims belong in Experience, unhedged proof in the hero.
