@@ -186,6 +186,32 @@
 
         <article class="project">
           <div class="project-text">
+            <h3>Everill’s Martial Arts &amp; Fitness</h3>
+            <p>Client site for a martial arts club in Telford, replacing their Wix site, plus a paid online video course. Stripe Checkout with signature-checked webhooks and idempotent enrolment, and a daily cron that reconciles Stripe against Postgres so no paid order goes unenrolled. Learners sign in by emailed link or 6-digit code, with only hashes of tokens stored. Lesson videos play through signed, expiring Bunny Stream URLs.</p>
+            <p class="stackline label">TypeScript · Next.js · PostgreSQL · Stripe · Resend · Vercel</p>
+            <ul class="project-links">
+              <li><a href="https://www.everills-martial-arts-and-fitness.co.uk/" rel="noopener">Live site<span class="sr-only"> for Everill’s Martial Arts &amp; Fitness</span> <span aria-hidden="true">↗</span></a></li>
+            </ul>
+          </div>
+          <figure class="routes">
+            <table>
+              <caption class="sr-only">Selected Everill’s API routes</caption>
+              <thead><tr><th scope="col">Method</th><th scope="col">Route</th></tr></thead>
+              <tbody>
+                <tr><td>POST</td><td>/api/checkout</td></tr>
+                <tr><td>POST</td><td>/api/stripe/webhook</td></tr>
+                <tr><td>GET</td><td>/api/cron/reconcile</td></tr>
+                <tr><td>POST</td><td>/api/learn/sign-in</td></tr>
+                <tr><td>POST</td><td>/api/learn/verify</td></tr>
+                <tr><td>POST</td><td>/api/learn/progress</td></tr>
+              </tbody>
+            </table>
+            <figcaption>6 of 11 routes. Source is private, client work.</figcaption>
+          </figure>
+        </article>
+
+        <article class="project">
+          <div class="project-text">
             <h3>Key Value Store</h3>
             <p>An in-memory key-value store with a RESTful HTTP API, written in Go from scratch. Add, update, upsert, delete, and query by key or across the whole store.</p>
             <p class="stackline label">Go · HTTP · REST</p>
