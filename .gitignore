@@ -2,3 +2,6 @@
 *.docx
 PRODUCT.md
 .impeccable/
+# Original screen recordings are kept locally; publish only reviewed edits.
+/assets/videos/KB Walkthrough.mp4
+/assets/videos/Chadbot Walkthrough.mp4
